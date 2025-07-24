@@ -33,7 +33,7 @@ SELECT FIRST_NAME FROM ASHWIN_TA1 WHERE FIRST_NAME LIKE 'S%'
 
 SELECT FIRST_NAME FROM ASHWIN_TA1 WHERE FIRST_NAME LIKE 'S%N'
 
---3.Write a query to display all the employees who are all working for department 90 and their name must starts with ‘S’.
+--3.Write a query to display all the employees who are all working for department 90 and their name must starts with â€˜Sâ€™.
 
 SELECT FIRST_NAME FROM ASHWIN_TA1 WHERE FIRST_NAME LIKE 'S%' AND DEPARTMENT_ID=90
 
@@ -122,7 +122,7 @@ SELECT FIRST_NAME,LAST_NAME,YEAR_OF_JOINING FROM ASHWIN_TA1 WHERE YEAR(YEAR_OF_J
 
 SELECT UPPER(FIRST_NAME) FIRST_NAME , LOWER(LAST_NAME) LAST_NAME FROM ASHWIN_TA1 
 
---25.Display the length of first name for employees where last name contain character ‘b’ after 3rd position.
+--25.Display the length of first name for employees where last name contain character â€˜bâ€™ after 3rd position.
 
 SELECT FIRST_NAME,LEN(FIRST_NAME) AS LENGTHS,CHARINDEX('R', LAST_NAME) as INDEXS FROM ASHWIN_TA1  WHERE CHARINDEX('R',LAST_NAME)>3
 
@@ -142,7 +142,7 @@ SELECT FIRST_NAME,SALARY FROM ASHWIN_TA1  WHERE SALARY > ( SELECT AVG(SALARY) FR
 
 SELECT * FROM ASHWIN_TA1 K1 LEFT OUTER JOIN ASHWIN_TA2 K2 ON K1.DEPARTMENT_ID=K2.DEPARTMENT_ID
 
---30.Replace ‘null’ value to ‘AAA’ 
+--30.Replace â€˜nullâ€™ value to â€˜AAAâ€™ 
 
 SELECT DEPARTMENT_ID, ISNULL(MANAGER_ID,0) AS MANAGER_ID ,ISNULL(DEPARTMENT_NAME,'AAA') AS DEPARTMENT_NAME FROM ASHWIN_TA2;
 
@@ -160,14 +160,14 @@ CREATE SYNONYM ASHWIN_TA FOR ASHWIN_TA1
 
 --33.Create a procedure for who are joined between 2 dates.
 
-CREATE PROCEDURE ASHWIN_OR
+CREATEÂ PROCEDUREÂ ASHWIN_OR
 AS
-SELECT * FROM ASHWIN_TA1
+SELECTÂ * FROMÂ ASHWIN_TA1
 GO;
 
 EXEC ASHWIN_OR;
 
-CREATE PROCEDURE ASHWIN_ORG9 AS SELECT FIRST_NAME FROM ASHWIN_TA1 WHERE YEAR_OF_JOINING BETWEEN '2017-03-11' AND '2019-03-11';
+CREATEÂ PROCEDUREÂ ASHWIN_ORG9 AS SELECT FIRST_NAME FROMÂ ASHWIN_TA1 WHERE YEAR_OF_JOINING BETWEEN '2017-03-11' AND '2019-03-11';
 
 EXEC ASHWIN_ORG9;
 
@@ -187,6 +187,6 @@ EXEC INSERTS
 @man_id =1,
 @dep_name =HR
 
---35.write a query for convert ‘2006-12-30 00:38:54.840’ to 20061230003854 
+--35.write a query for convert â€˜2006-12-30 00:38:54.840â€™ to 20061230003854 
 
 select replace(convert(varchar, '2006-12-30',101),'-','')+ replace(convert(varchar, '00:38:54',108),':','')
